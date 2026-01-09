@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat AI Advisor - Think Positif</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="bg-dark-900 text-white">
+  
+  <!-- Navigation -->
+  <nav class="bg-dark-800 border-b border-gold-400">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-gold-400">AI Advisor</a>
+      <div class="space-x-6">
+        <a href="index.html" class="hover:text-gold-400 transition">Accueil</a>
+        <a href="profile.html" class="hover:text-gold-400 transition">Mon Profil</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="chat-wrapper">
+    <!-- Chat Container -->
+    <div class="chat-container">
+      <!-- Messages Area -->
+      <div id="chatMessages" class="chat-messages">
+        <!-- Messages affichés ici -->
+      </div>
+
+      <!-- Proposed Questions -->
+      <div id="proposedQuestions" class="proposed-questions"></div>
+
+      <!-- Input Area -->
+      <div class="chat-input-wrapper">
+        <div class="chat-input-area">
+          <input 
+            type="text" 
+            id="userInput" 
+            placeholder="Écrivez votre message ou votre idée..."
+            class="chat-input"
+            autocomplete="off"
+          >
+          <button id="sendBtn" class="btn-send">➤</button>
+        </div>
+        <div class="text-center text-gray-500 text-sm mt-2">
+          💡 Vous pouvez parler librement ou répondre aux suggestions
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Summary (Hidden by default) -->
+    <div id="dashboardSummary" class="dashboard-summary hidden">
+      <div class="dashboard-content">
+        <button id="closeDashboard" class="close-dashboard">✕</button>
+        
+        <h2 class="text-3xl font-bold text-gold-400 mb-8">📊 Résumé de votre parcours</h2>
+
+        <!-- Journey Summary -->
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-4">Votre situation :</h3>
+          <div id="journeySummary" class="bg-dark-800 p-6 rounded-lg text-gray-300">
+            <!-- Résumé généré -->
+          </div>
+        </div>
+
+        <!-- Canvas/SWOT -->
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-4">Vos Forces & Opportunités :</h3>
+          <div id="canvasSummary" class="bg-dark-800 p-6 rounded-lg text-gray-300">
+            <!-- Canvas généré -->
+          </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-4">Prochaines étapes :</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-2">
+            <li>Valider votre concept avec des clients potentiels</li>
+            <li>Créer un prototype ou MVP (produit initial)</li>
+            <li>Mesurer les résultats et itérer</li>
+            <li>Réunion avec nos experts Think Positif</li>
+          </ul>
+        </div>
+
+        <!-- Booking CTA -->
+        <div class="booking-cta">
+          <h3 class="text-xl font-bold mb-4">Prêt à avancer ?</h3>
+          <p class="text-gray-300 mb-6">
+            Nos experts Think Positif sont là pour accompagner votre transformation digitale.
+          </p>
+          <a href="https://www.thinkpositif.eu/contact/" target="_blank" class="btn-primary w-full text-center">
+            📅 Réserver une consultation
+          </a>
+          <p class="text-gray-400 text-sm mt-4">
+            Ou contactez-nous : <a href="mailto:contact@thinkpositif.eu" class="text-gold-400 hover:underline">contact@thinkpositif.eu</a>
+          </p>
+        </div>
+
+        <!-- Back Button -->
+        <button id="backToChat" class="btn-secondary w-full mt-6">
+          ← Revenir au chat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div id="loadingSpinner" class="loading-spinner hidden">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/methodologies.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/gemini.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>
